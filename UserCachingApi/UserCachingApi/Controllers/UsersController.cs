@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UserCachingApi.DTOs;
+using UserCachingApi.Models;
 using UserCachingApi.Repositories;
 using UserCachingApi.Services;
+
 
 namespace UserCachingApi.Controllers
 {
@@ -48,6 +51,44 @@ namespace UserCachingApi.Controllers
             await _repository.InsertAsync(externalUser);
 
             return Ok(externalUser);
+        }
+
+        // INSERT
+        [HttpPost]
+        public async Task<IActionResult> Insert(User user)
+        {
+            if (user == null)
+                return BadRequest("User data is required");
+
+            // If client sends an ID, block duplicates
+            if (user.Id > 0)
+            {
+                var exists = await _repository.ExistsAsync(user.Id);
+                if (exists)
+                    return Conflict($"User with ID {user.Id} already exists");
+            }
+
+            await _repository.InsertAsync(user);
+            return Ok(user);
+        }
+
+        // UPDATE
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, UpdateUserDto dto)
+        {
+            if (dto == null)
+                return BadRequest("User data is required");
+
+            var user = await _repository.GetByIdAsync(id);
+            if (user == null)
+                return NotFound($"User with ID {id} not found");
+
+            user.Name = dto.Name;
+            user.Username = dto.Username;
+            user.Email = dto.Email;
+
+            await _repository.UpdateAsync(user);
+            return Ok("User updated successfully");
         }
 
     }
