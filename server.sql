@@ -1,0 +1,14 @@
+CREATE DATABASE PublicApiCacheDb;
+GO
+
+USE PublicApiCacheDb;
+GO
+
+CREATE TABLE Users (
+    Id INT PRIMARY KEY,
+    Name NVARCHAR(100),
+    Username NVARCHAR(50),
+    Email NVARCHAR(100)
+);
+
+SELECT * FROM USERS;
