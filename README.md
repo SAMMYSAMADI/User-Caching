@@ -1,7 +1,20 @@
-Repository Structure
---------------------------
+**Repository Structure
+--------------------------**
 
-Backend - User-Caching-Api
+
+Public API used: https://jsonplaceholder.typicode.com/users
+
+**Installation**
+
+------------
+-Clone the Repository
+git clone https://github.com/SAMMYSAMADI/User-Caching.git
+
+-Create the Database and the table using schema.sql
+
+
+**Backend - UserCachingApi
+------------------------**
 
 UserCachingApi/
 
@@ -37,40 +50,68 @@ UserCachingApi/
 
 
 
-Public API used: https://jsonplaceholder.typicode.com/users
-
-
-
-Steps to Setup the Backend
+**Steps to Setup the Backend**
 
 ---------------------------
 
-1\. Initially create the Database and the Table Refer schema.sql
-
-2\. Clone the project and restore it
-
-3\. Configure the Database Connection in appsettings.json
-
-4\. Restore Dependencies 
-
-\- Navigate to the backend folder
+1\. Navigate to the backend folder
 
 cd UserCachingApi
 
--Restore
+2\. Configure the Database Connection in appsettings.json
 
-dotnet restore
+* Open appsettings.json
+* Update the connection string with your database details
 
-5\. Build the Backend
+3\. Restore Dependencies 
 
-dotnet build
+* dotnet restore
 
-6\. Run the Backend
+4\. Build the Backend
 
-dotnet run
+* dotnet build
 
-7\. Open Swagger and do the testing
+5\. Run the Backend
+
+* dotnet run
+
+6\. Open Swagger and do the testing
 http://localhost:5100/swagger
+
+
+--------------------------------------------------------
+
+
+
+**Steps to Setup the Frontend
+---------------------------**
+
+
+
+1\. Navigate to the backend folder
+
+* cd UserCachingUi
+
+2\. Install dependencies
+
+* npm install
+
+3\. Configure API base URL
+
+* Check src/app/services/user.service.ts
+  http://localhost:5100/api/users
+
+4.Run the frontend
+
+* ng serve
+
+5\. Open it in browser
+
+* http://localhost:4200
+
+
+
+
 
 
 
