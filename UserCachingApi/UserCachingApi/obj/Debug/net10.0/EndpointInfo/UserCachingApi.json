@@ -134,24 +134,35 @@
   "components": {
     "schemas": {
       "UpdateUserDto": {
+        "required": [
+          "email",
+          "name",
+          "username"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "username": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           }
         },
         "additionalProperties": false
       },
       "User": {
+        "required": [
+          "email",
+          "name",
+          "username"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -159,16 +170,17 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "username": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           }
         },
         "additionalProperties": false

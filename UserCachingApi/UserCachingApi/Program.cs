@@ -16,7 +16,19 @@ builder.Services.AddScoped<IExternalUserService, ExternalUserService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy => policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowAngular");
 
 app.UseSwagger();
 app.UseSwaggerUI();
