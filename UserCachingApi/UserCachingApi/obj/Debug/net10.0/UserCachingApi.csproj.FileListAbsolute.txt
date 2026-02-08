@@ -72,3 +72,4 @@ D:\Projects\P1\User-Caching\UserCachingApi\UserCachingApi\obj\Debug\net10.0\refi
 D:\Projects\P1\User-Caching\UserCachingApi\UserCachingApi\obj\Debug\net10.0\UserCachingApi.pdb
 D:\Projects\P1\User-Caching\UserCachingApi\UserCachingApi\obj\Debug\net10.0\UserCachingApi.genruntimeconfig.cache
 D:\Projects\P1\User-Caching\UserCachingApi\UserCachingApi\obj\Debug\net10.0\ref\UserCachingApi.dll
+D:\Projects\P1\User-Caching\UserCachingApi\UserCachingApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

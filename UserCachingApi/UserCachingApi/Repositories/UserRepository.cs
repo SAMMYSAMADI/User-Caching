@@ -27,12 +27,34 @@ namespace UserCachingApi.Repositories
                 new { Id = id });
         }
 
+        public async Task<bool> ExistsAsync(int id)
+        {
+            using var conn = _factory.CreateConnection();
+
+            const string sql = "SELECT 1 FROM dbo.Users WHERE Id = @Id";
+
+            var result = await conn.QueryFirstOrDefaultAsync<int?>(sql, new { Id = id });
+
+            return result.HasValue;
+        }
+
         public async Task InsertAsync(User user)
         {
             using var conn = _factory.CreateConnection();
             await conn.ExecuteAsync(
                 @"INSERT INTO Users(Id,Name,Username,Email)
               VALUES(@Id,@Name,@Username,@Email)", user);
+        }
+
+        public async Task UpdateAsync(User user)
+        {
+            using var conn = _factory.CreateConnection();
+            await conn.ExecuteAsync(
+                @"UPDATE Users
+              SET Name=@Name,
+                  Username=@Username,
+                  Email=@Email
+              WHERE Id=@Id", user);
         }
     }
 }
