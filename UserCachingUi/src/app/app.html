@@ -1,0 +1,45 @@
+<h2>User Management</h2>
+
+<button (click)="showData()">Show Data</button>
+
+<hr>
+
+<h3>Add / Edit User</h3>
+
+<label>ID</label><br>
+<input type="number" [(ngModel)]="user.id" required><br><br>
+
+<label>Name</label><br>
+<input [(ngModel)]="user.name" required><br><br>
+
+<label>Username</label><br>
+<input [(ngModel)]="user.username" required><br><br>
+
+<label>Email</label><br>
+<input type="email" [(ngModel)]="user.email" required><br><br>
+
+<button (click)="save()">Save</button>
+<button (click)="clear()">Clear</button>
+
+<hr>
+
+<table *ngIf="showTable" border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let u of users">
+    <td>{{u.id}}</td>
+    <td>{{u.name}}</td>
+    <td>{{u.username}}</td>
+    <td>{{u.email}}</td>
+    <td>
+      <button (click)="edit(u)">Edit</button>
+      <button (click)="delete(u.id)">Delete</button>
+    </td>
+  </tr>
+</table>
