@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UserCachingApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36fc76b290bf513cc0c4780cd41e39f2875cc92b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94b18bf6eee6d8c6aeb3c49d8965fc4a77d8deda")]
 [assembly: System.Reflection.AssemblyProductAttribute("UserCachingApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UserCachingApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

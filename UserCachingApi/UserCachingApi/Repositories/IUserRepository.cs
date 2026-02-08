@@ -9,6 +9,7 @@ namespace UserCachingApi.Repositories
         Task<bool> ExistsAsync(int id);
         Task InsertAsync(User user);
         Task UpdateAsync(User user);
+        Task DeleteAsync(int id);
 
     }
 }
