@@ -56,5 +56,13 @@ namespace UserCachingApi.Repositories
                   Email=@Email
               WHERE Id=@Id", user);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            using var conn = _factory.CreateConnection();
+            await conn.ExecuteAsync(
+                "DELETE FROM Users WHERE Id=@Id",
+                new { Id = id });
+        }
     }
 }

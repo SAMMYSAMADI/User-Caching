@@ -91,5 +91,19 @@ namespace UserCachingApi.Controllers
             return Ok("User updated successfully");
         }
 
+        // DELETE
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var exists = await _repository.ExistsAsync(id);
+
+            if (!exists)
+                return NotFound($"User with ID {id} not found");
+
+            await _repository.DeleteAsync(id);
+
+            return Ok("User deleted successfully");
+        }
+
     }
 }
